@@ -144,6 +144,14 @@ export default function CalendarPage() {
                     </ul>
                   </div>
                 )}
+                {selectedDay.log.mucous && (
+                  <div>
+                    <span className="font-medium">Cervical Mucous:</span>
+                    <p className="mt-1 text-sm text-muted-foreground capitalize">
+                      {selectedDay.log.mucous.replace('_', ' ')}
+                    </p>
+                  </div>
+                )}
                 {selectedDay.log.notes && (
                   <div>
                     <span className="font-medium">Notes:</span>

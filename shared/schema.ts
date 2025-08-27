@@ -16,6 +16,7 @@ export const dailyLogSchema = z.object({
   date: z.string(), // ISO date string
   mood: z.enum(['happy', 'sad', 'irritated', 'energetic', 'tired', 'romantic']).optional(),
   symptoms: z.array(z.enum(['cramps', 'headache', 'bloating', 'tender_breasts', 'acne', 'fatigue', 'nausea'])),
+  mucous: z.enum(['dry', 'sticky', 'creamy', 'watery', 'egg_white', 'unusual']).optional(),
   notes: z.string().optional(),
   temperature: z.number().optional(),
   isPeriodDay: z.boolean().default(false),

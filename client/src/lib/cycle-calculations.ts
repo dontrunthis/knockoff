@@ -115,6 +115,7 @@ export class CycleCalculator {
         log: log ? {
           mood: log.mood,
           symptoms: log.symptoms,
+          mucous: log.mucous,
           notes: log.notes,
           isPeriodDay: log.isPeriodDay,
         } : undefined,

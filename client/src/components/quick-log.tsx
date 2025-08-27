@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useCycleData } from '@/hooks/use-cycle-data';
-import { MoodType, SymptomType } from '@/types/cycle';
+import { MoodType, SymptomType, MucousType } from '@/types/cycle';
 
 const moodOptions: { value: MoodType; emoji: string; label: string; color: string }[] = [
   { value: 'happy', emoji: '😊', label: 'Happy', color: 'bg-yellow-100 text-yellow-600' },
@@ -26,12 +26,22 @@ const symptomOptions: { value: SymptomType; label: string }[] = [
   { value: 'nausea', label: 'Nausea' },
 ];
 
+const mucousOptions: { value: MucousType; label: string; description: string }[] = [
+  { value: 'dry', label: 'Dry', description: 'No noticeable discharge' },
+  { value: 'sticky', label: 'Sticky', description: 'Thick, tacky texture' },
+  { value: 'creamy', label: 'Creamy', description: 'Smooth, lotion-like' },
+  { value: 'watery', label: 'Watery', description: 'Thin, watery consistency' },
+  { value: 'egg_white', label: 'Egg White', description: 'Clear, stretchy (fertile)' },
+  { value: 'unusual', label: 'Unusual', description: 'Different color/smell' },
+];
+
 export default function QuickLog() {
   const { dailyLogs, saveDailyLog } = useCycleData();
   const [selectedDate] = useState(new Date());
   const [isPeriodDay, setIsPeriodDay] = useState(false);
   const [selectedMood, setSelectedMood] = useState<MoodType | undefined>();
   const [selectedSymptoms, setSelectedSymptoms] = useState<SymptomType[]>([]);
+  const [selectedMucous, setSelectedMucous] = useState<MucousType | undefined>();
   const [notes, setNotes] = useState('');
 
   const today = format(selectedDate, 'yyyy-MM-dd');
@@ -43,11 +53,13 @@ export default function QuickLog() {
       setIsPeriodDay(todayLog.isPeriodDay);
       setSelectedMood(todayLog.mood);
       setSelectedSymptoms(todayLog.symptoms);
+      setSelectedMucous(todayLog.mucous);
       setNotes(todayLog.notes || '');
     } else {
       setIsPeriodDay(false);
       setSelectedMood(undefined);
       setSelectedSymptoms([]);
+      setSelectedMucous(undefined);
       setNotes('');
     }
   }, [todayLog]);
@@ -69,6 +81,7 @@ export default function QuickLog() {
       isPeriodDay,
       mood: selectedMood,
       symptoms: selectedSymptoms,
+      mucous: selectedMucous,
       notes: notes.trim() || undefined,
     });
   };
@@ -140,6 +153,28 @@ export default function QuickLog() {
               />
               <span className="text-sm">{symptom.label}</span>
             </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Cervical Mucous */}
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2">Cervical Mucous</label>
+        <div className="grid grid-cols-2 gap-2">
+          {mucousOptions.map((mucous) => (
+            <button
+              key={mucous.value}
+              className={`p-3 text-left rounded-lg border transition-colors ${
+                selectedMucous === mucous.value
+                  ? 'border-primary bg-primary/10 text-primary'
+                  : 'border-border bg-muted/30 hover:bg-muted/50'
+              }`}
+              onClick={() => setSelectedMucous(selectedMucous === mucous.value ? undefined : mucous.value)}
+              data-testid={`button-mucous-${mucous.value}`}
+            >
+              <div className="font-medium text-sm">{mucous.label}</div>
+              <div className="text-xs text-muted-foreground mt-1">{mucous.description}</div>
+            </button>
           ))}
         </div>
       </div>

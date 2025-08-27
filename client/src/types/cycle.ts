@@ -4,6 +4,8 @@ export type SymptomType = 'cramps' | 'headache' | 'bloating' | 'tender_breasts' 
 
 export type FlowType = 'light' | 'medium' | 'heavy';
 
+export type MucousType = 'dry' | 'sticky' | 'creamy' | 'watery' | 'egg_white' | 'unusual';
+
 export type DayType = 'normal' | 'period' | 'fertile' | 'ovulation';
 
 export interface CalendarDay {
@@ -15,6 +17,7 @@ export interface CalendarDay {
   log?: {
     mood?: MoodType;
     symptoms: SymptomType[];
+    mucous?: MucousType;
     notes?: string;
     isPeriodDay: boolean;
     flow?: FlowType;
