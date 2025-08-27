@@ -1,10 +1,10 @@
 import { DailyLog, Cycle, Settings, PeriodEntry } from "@shared/schema";
 
 const STORAGE_KEYS = {
-  DAILY_LOGS: 'bloom_daily_logs',
-  CYCLES: 'bloom_cycles',
-  SETTINGS: 'bloom_settings',
-  PERIOD_ENTRIES: 'bloom_period_entries',
+  DAILY_LOGS: 'flow_control_daily_logs',
+  CYCLES: 'flow_control_cycles',
+  SETTINGS: 'flow_control_settings',
+  PERIOD_ENTRIES: 'flow_control_period_entries',
 } as const;
 
 class LocalStorage {

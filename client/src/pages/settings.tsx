@@ -256,7 +256,7 @@ export default function SettingsPage() {
         {/* App Information */}
         <Card className="organic-shadow">
           <CardHeader>
-            <CardTitle>About Bloom</CardTitle>
+            <CardTitle>About Flow Control</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2 text-sm">
@@ -278,7 +278,7 @@ export default function SettingsPage() {
             
             <div className="mt-4 p-3 bg-muted/30 rounded-lg">
               <p className="text-xs text-muted-foreground">
-                Bloom is designed with privacy as the top priority. Your personal health data
+                Flow Control is designed with privacy as the top priority. Your personal health data
                 never leaves your device and is not shared with any third parties.
               </p>
             </div>

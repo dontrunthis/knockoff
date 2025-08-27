@@ -20,7 +20,7 @@ export default function Header() {
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
               <Flower className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-2xl font-bold text-foreground">Bloom</h1>
+            <h1 className="text-2xl font-bold text-foreground">Flow Control</h1>
           </Link>
           
           <nav className="hidden md:flex space-x-6">

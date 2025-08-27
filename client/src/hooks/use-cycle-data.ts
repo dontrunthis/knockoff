@@ -178,7 +178,7 @@ export function useCycleData() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `bloom-cycle-data-${format(new Date(), 'yyyy-MM-dd')}.json`;
+      a.download = `flow-control-cycle-data-${format(new Date(), 'yyyy-MM-dd')}.json`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
