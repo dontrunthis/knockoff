@@ -142,17 +142,20 @@ export default function QuickLog() {
       {/* Symptoms */}
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">Symptoms</label>
-        <div className="space-y-2">
+        <div className="grid grid-cols-2 gap-2">
           {symptomOptions.map((symptom) => (
-            <label key={symptom.value} className="flex items-center">
-              <Checkbox
-                checked={selectedSymptoms.includes(symptom.value)}
-                onCheckedChange={() => handleSymptomToggle(symptom.value)}
-                className="mr-2"
-                data-testid={`checkbox-symptom-${symptom.value}`}
-              />
-              <span className="text-sm">{symptom.label}</span>
-            </label>
+            <button
+              key={symptom.value}
+              className={`p-3 text-left rounded-lg border transition-colors ${
+                selectedSymptoms.includes(symptom.value)
+                  ? 'border-primary bg-primary/10 text-primary'
+                  : 'border-border bg-muted/30 hover:bg-muted/50'
+              }`}
+              onClick={() => handleSymptomToggle(symptom.value)}
+              data-testid={`button-symptom-${symptom.value}`}
+            >
+              <div className="font-medium text-sm">{symptom.label}</div>
+            </button>
           ))}
         </div>
       </div>
