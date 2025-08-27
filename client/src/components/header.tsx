@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Flower, Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
+import { ThemeToggle } from './theme-toggle';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,30 +24,36 @@ export default function Header() {
             <h1 className="text-2xl font-bold text-foreground">Flow Control</h1>
           </Link>
           
-          <nav className="hidden md:flex space-x-6">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`font-medium transition-colors ${
-                  item.current
-                    ? 'text-primary border-b-2 border-primary pb-1'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-                data-testid={`link-${item.name.toLowerCase()}`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center space-x-6">
+            <nav className="flex space-x-6">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`font-medium transition-colors ${
+                    item.current
+                      ? 'text-primary border-b-2 border-primary pb-1'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                  data-testid={`link-${item.name.toLowerCase()}`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+            <ThemeToggle />
+          </div>
           
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            data-testid="button-mobile-menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <button
+              className="text-foreground"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
         
         {/* Mobile menu */}
