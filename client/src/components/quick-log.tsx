@@ -141,7 +141,7 @@ export default function QuickLog() {
 
       {/* Symptoms */}
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-2">Symptoms</label>
+        <label className="block text-base font-medium mb-2">Symptoms</label>
         <div className="grid grid-cols-2 gap-2">
           {symptomOptions.map((symptom) => (
             <button
@@ -162,7 +162,7 @@ export default function QuickLog() {
 
       {/* Cervical Mucous */}
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-2">Cervical Mucous</label>
+        <label className="block text-base font-medium mb-2">Cervical Mucous</label>
         <div className="grid grid-cols-2 gap-2">
           {mucousOptions.map((mucous) => (
             <button
@@ -184,7 +184,7 @@ export default function QuickLog() {
 
       {/* Notes */}
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-2">Notes</label>
+        <label className="block text-base font-medium mb-2">Notes</label>
         <Textarea
           className="w-full p-3 border border-input rounded-lg flowing-border resize-none"
           rows={3}
