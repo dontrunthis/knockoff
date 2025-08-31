@@ -122,7 +122,7 @@ export default function QuickLog() {
       {/* Mood Tracking */}
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">How are you feeling?</label>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 justify-center">
           {moodOptions.map((mood) => (
             <button
               key={mood.value}
