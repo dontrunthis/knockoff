@@ -148,7 +148,7 @@ export default function QuickLog() {
               key={symptom.value}
               className={`p-3 text-left rounded-lg border transition-colors ${
                 selectedSymptoms.includes(symptom.value)
-                  ? 'border-primary bg-primary/10 text-primary'
+                  ? 'border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300'
                   : 'border-border bg-muted/30 hover:bg-muted/50'
               }`}
               onClick={() => handleSymptomToggle(symptom.value)}
@@ -169,7 +169,7 @@ export default function QuickLog() {
               key={mucous.value}
               className={`p-3 text-left rounded-lg border transition-colors ${
                 selectedMucous === mucous.value
-                  ? 'border-primary bg-primary/10 text-primary'
+                  ? 'border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300'
                   : 'border-border bg-muted/30 hover:bg-muted/50'
               }`}
               onClick={() => setSelectedMucous(selectedMucous === mucous.value ? undefined : mucous.value)}
