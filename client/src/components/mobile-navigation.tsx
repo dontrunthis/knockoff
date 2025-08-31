@@ -1,4 +1,4 @@
-import { Calendar, PlusCircle, TrendingUp, Settings } from 'lucide-react';
+import { Calendar, PlusCircle, TrendingUp } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
 
 export default function MobileNavigation() {
@@ -8,7 +8,6 @@ export default function MobileNavigation() {
     { name: 'Calendar', href: '/', icon: Calendar, current: location === '/' },
     { name: 'Log', href: '/', icon: PlusCircle, current: false }, // This scrolls to log section
     { name: 'Insights', href: '/insights', icon: TrendingUp, current: location === '/insights' },
-    { name: 'Settings', href: '/settings', icon: Settings, current: location === '/settings' },
   ];
 
   const handleLogClick = () => {
