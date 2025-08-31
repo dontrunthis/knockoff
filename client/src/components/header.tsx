@@ -10,6 +10,7 @@ export default function Header() {
   const navigation = [
     { name: 'Calendar', href: '/', current: location === '/' },
     { name: 'Insights', href: '/insights', current: location === '/insights' },
+    { name: 'Settings', href: '/settings', current: location === '/settings' },
   ];
 
   return (

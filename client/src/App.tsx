@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import NotFound from "@/pages/not-found";
 import CalendarPage from "@/pages/calendar";
 import InsightsPage from "@/pages/insights";
+import SettingsPage from "@/pages/settings";
 import Header from "@/components/header";
 import MobileNavigation from "@/components/mobile-navigation";
 
@@ -15,6 +16,7 @@ function Router() {
     <Switch>
       <Route path="/" component={CalendarPage} />
       <Route path="/insights" component={InsightsPage} />
+      <Route path="/settings" component={SettingsPage} />
       <Route component={NotFound} />
     </Switch>
   );
